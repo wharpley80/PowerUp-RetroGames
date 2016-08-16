@@ -59,17 +59,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<div class="small-12 medium-4 medium-pull-8 columns">
 					<div class="secondary">
-
+          
 					<?php
 						/**
 						 * woocommerce_single_product_summary hook.
 						 *
 						 * @hooked woocommerce_template_single_title - 5
+						 * @hooked game_condition_fields - 9
 						 * @hooked woocommerce_template_single_rating - 10
-						 * @hooked game_condition_fields - 10
 						 * @hooked woocommerce_template_single_price - 10
 						 * @hooked woocommerce_template_single_excerpt - 20
-						 * @hooked woocommerce_template_single_add_to_cart - 30
+						 * @hooked woocommerce_template_single_add_to_cart - 10
 						 * @hooked woocommerce_template_single_meta - 40
 						 * @hooked woocommerce_template_single_sharing - 50
 						 */

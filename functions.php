@@ -12,7 +12,9 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_p
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
 //remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
-
+remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+    
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 10 );
 add_action( 'woocommerce_before_single_product_summary', 'comments_template', 30);
 add_action( 'wpt_footer', 'wpt_footer_cart_link' );
 
@@ -254,14 +256,12 @@ function game_condition_fields() {
     }
   if ( $current_cat == 'snes-games' || $current_cat == 'sega-games') {
     ?>
-    <h5>Cart Condition: <?php the_field('cart_condition'); ?></h5>
-    <h5>Cart Condition: <?php the_field('label_condition'); ?></h5>
+    <h5 class="cond-label">Cart Condition: <?php the_field('cart_condition'); ?></h5>
+    <h5 class="cond-label">Cart Condition: <?php the_field('label_condition'); ?></h5>
     <?php
   }
 }
-add_action( 'woocommerce_single_product_summary', 'game_condition_fields', 10);
-
-
+add_action( 'woocommerce_single_product_summary', 'game_condition_fields', 9);
 
 function wpt_footer_cart_link() {
 
@@ -273,6 +273,25 @@ function wpt_footer_cart_link() {
   endif;
 
 }
+  
+function unset_shipping_when_free_is_available_all_zones( $rates, $package ) {
+     
+  $all_free_rates = array();
+   
+  foreach ( $rates as $rate_id => $rate ) {
+    if ( 'free_shipping' === $rate->method_id ) {
+      $all_free_rates[ $rate_id ] = $rate;
+      break;
+    }
+  }
+   
+  if ( empty( $all_free_rates )) {
+    return $rates;
+  } else {
+    return $all_free_rates;
+  } 
+}
+add_filter( 'woocommerce_package_rates', 'unset_shipping_when_free_is_available_all_zones', 10, 2);
 
 // Change number or products per row to 3
 if (!function_exists('loop_columns')) {
@@ -351,6 +370,6 @@ function wpt_theme_js() {
 }
 add_action( 'wp_enqueue_scripts', 'wpt_theme_js' );
 
-add_filter( 'show_admin_bar', '__return_false' );
+//add_filter( 'show_admin_bar', '__return_false' );
 
 ?>

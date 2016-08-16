@@ -34,7 +34,7 @@
 <div class="mario">
 
 	<div class="small-12 large-4 columns" id="video-side">
-		<h2 id="retro-style">Subscribe Now</h2>
+		<h2 id="retro-style">Subscribe</h2>
 		<hr>
 		<p>
 			Subscribe to our YouTube channel and laugh at our gameplay. We are continually adding walkthroughs
