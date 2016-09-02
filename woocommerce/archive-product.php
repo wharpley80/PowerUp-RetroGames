@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
-<div class="shop-cont">
+<div class="game-shop-cont">
 
 	<?php
 		/**
@@ -35,21 +35,11 @@ get_header( 'shop' ); ?>
 	?>
 
 	<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-<!--
-	<section class="row">
-  	<div class="small-12 columns text-center">
-    	<div class="leader">
 
-			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
-
-			</div>
-		</div>
-	</section>
-	-->
 	<?php endif; ?>
 
 	<div class="shop-wrapper">
-		<div class="small-12 large-9 columns">
+		<div class="small-12 large-9 columns" id="product-side">
 
 		<?php
 			/**

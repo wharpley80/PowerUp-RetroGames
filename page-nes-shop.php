@@ -12,9 +12,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="shop-cont">
+<h1 class="shop-title">Nintendo Shop</h1>
+
+<div class="game-shop-cont" id="my-anchor">
+
+  <?php
+		/**
+		 * woocommerce_before_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+		 * @hooked woocommerce_breadcrumb - 20
+		 */
+		do_action( 'woocommerce_before_main_content' );
+	?>
+	
 	<div class="shop-wrapper">
-		<div class="small-12 large-9 columns">
+	
+	  <?php
+		  /**
+		   * woocommerce_sidebar hook.
+		   *
+		   * @hooked woocommerce_get_sidebar - 10
+		   */
+		  do_action( 'woocommerce_sidebar' );
+	  ?>
+	
+		<div class="small-12 large-9 columns" id="product-side">
 
 			<?php
 				/**
@@ -25,15 +48,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 */
 				do_action( 'woocommerce_archive_description' );
 			?>
-			
-			<div class="woocommerce">
-				<h1>Nintendo Shop</h1>
-
-				<?php snes_result_count(); ?>
-
-				<?php snes_loop(); ?>
-
-			</div>
 
 			<?php if ( have_posts() ) : ?>
 
@@ -69,7 +83,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					do_action( 'woocommerce_after_shop_loop' );
 				?>
 
-			<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+			<?php else : ?>
+			
+			  <?php nes_loop(); ?>
 
 				<?php wc_get_template( 'loop/no-products-found.php' ); ?>
 
@@ -77,21 +93,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</div>
 	</div>
-
-	<div class="woocommerce">
-	
-		<?php get_sidebar('snes'); ?>
-
-	</div>
-
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		//do_action( 'woocommerce_sidebar' );
-	?>
 
 	<?php
 		/**
@@ -105,26 +106,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </div>
 
-<div class="shop-cont">
-
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
-
-	<div class="snes-top-wrapper">
+<div class="slide-cont">
+	<div class="game-shop-top-wrapper">
 		<div class="small-12 medium-8 columns text-center">
 
 		<?php
 
       $args = array(
         'post_type' => 'product',
-        'product_cat' => 'snes-bundle'
+        'product_cat' => 'nes-bundle'
       );
 
       $the_query = new WP_Query($args);
@@ -177,20 +167,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 
 	<div class="nes-content-cont">
-		<div class="small-12 medium-5 columns" id="game-cont-left">
-		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-			<h2><?php the_title(); ?></h2>
+		<div class="small-12 large-5 columns" id="game-cont-left">
+			<h2>Nintendo</h2>
 			<hr>
-			<p><?php the_content(); ?></p>
-		<?php endwhile; endif; ?>
+			<p>
+			   The Nintendo Entertainment System (NES) was an 8-bit gaming console that changed gaming forever. Considered by many to be the best console of all time, and whether or not you agree what's not debatable is the depth of it's library of games. Super Mario Bros., Contra, Zelda, Metroid, Mega Man, and so many more. These games hold up which is why this console is so great. If you don't own one then buy one today, and if you do own one then check out our library of games!
+			</p>
 		</div>
-		<div class="small-12 medium-7 columns" id="game-cont-right">
-			<a href="https://www.youtube.com/channel/UCR38p1O7s2KyLlJwV0yb8Ew"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" id="tube-game"></a>
-			<video class="snes-highlights" autoplay controls loop>
-			  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mp4" type="video/mp4">
-			  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mov" type="video/mov">
-				Your browser does not support the video tag.
-			</video>
+		<div class="small-12 large-7 columns" id="game-cont-right">
+			<a href="https://www.youtube.com/channel/UCyxa1OESMqK7V68zRscpHdA"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" id="tube-game"></a>
+			
+			<?php
+        $youtube_id = 'oVYQjlR81us';
+	      echo '<iframe class="home-highlights" src="http://www.youtube.com/embed/'
+	      .$youtube_id.'?autoplay=1&loop=1" allowfullscreen></iframe>';        
+	    ?>
+
 		</div>
 	</div>
 

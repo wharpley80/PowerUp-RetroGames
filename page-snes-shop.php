@@ -12,9 +12,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="shop-cont" id="my-anchor">
+<h1 class="shop-title">Super Nintendo Shop</h1>
+
+<div class="game-shop-cont" id="my-anchor">
+
+  <?php
+		/**
+		 * woocommerce_before_main_content hook.
+		 *
+		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+		 * @hooked woocommerce_breadcrumb - 20
+		 */
+		do_action( 'woocommerce_before_main_content' );
+	?>
+    
 	<div class="shop-wrapper">
-		<div class="small-12 large-9 columns">
+	
+		<?php
+			/**
+		 	* woocommerce_sidebar hook.
+		 	*
+		 	* @hooked woocommerce_get_sidebar - 10
+		 	*/
+			do_action( 'woocommerce_sidebar' );
+		?>
+		
+		<div class="small-12 large-9 columns" id="product-side">
 
 			<?php
 				/**
@@ -25,16 +48,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 */
 				do_action( 'woocommerce_archive_description' );
 			?>
-			
-			<div class="woocommerce">
-
-				<h1>Super Nintendo Shop</h1>
-				
-				<?php //snes_result_count(); ?>
-
-				<?php //snes_loop(); ?>
-
-			</div>
 
 			<?php if ( have_posts() ) : ?>
 
@@ -69,31 +82,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 					do_action( 'woocommerce_after_shop_loop' );
 				?>
 
-			<?php else /*if ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) )*/ : ?>
+			<?php else  : ?>
 
 				<?php snes_loop(); ?>
 
-				<?php //wc_get_template( 'loop/no-products-found.php' ); ?>
+				<?php wc_get_template( 'loop/no-products-found.php' ); ?>
 
 			<?php endif; ?>
 
 		</div>
 	</div>
-
-	<div class="woocommerce">
-	
-		<?php get_sidebar('snes'); ?>
-
-	</div>
-
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		//do_action( 'woocommerce_sidebar' );
-	?>
 
 	<?php
 		/**
@@ -107,17 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </div>
 
-<div class="shop-cont">
-
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
+<div class="slide-cont">
 
 	<div class="snes-top-wrapper">
 		<div class="small-12 medium-8 columns text-center">
@@ -163,7 +151,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
           <?php if (  have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-            <button class="<?php if ($the_query->current_post == 0) : ?>is-active<?php endif; ?>" data-slide="<?php echo $the_query->current_post; ?>"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span>
+            <button class="<?php if ($the_query->current_post == 0) : ?>is-active<?php endif; ?>" 
+            	data-slide="<?php echo $the_query->current_post; ?>"><span class="show-for-sr">First slide details.</span>
+            	<span class="show-for-sr">Current Slide</span>
             </button>
 
           <?php endwhile; endif; ?>
@@ -179,20 +169,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 
 <div class="snes-content-cont">
-	<div class="small-12 medium-5 columns" id="game-cont-left">
+	<div class="small-12 large-5 columns" id="game-cont-left">
 		<h2>Super Nintendo</h2>
 		<hr>
 		<p>
-			The SNES launched the start of the Mario Kart and Donkey Kong Country franchises. Along with several other notable titles, this is a must own console for any gamer. If you owned this console growing up then let us take you back in time, and if you've never owned this console then you truly don't know what you're missing. Check out our bundles and games as we offer a variety of pricing options based on condition and whether or not you want all original or are happy with brand new third party accessories which will allow you to start playing for a lower price.
+			The SNES launched the start of the Mario Kart and Donkey Kong Country franchises. Along with 
+			several other notable titles, this is a must own console for any gamer. If you owned this console 
+			growing up then let us take you back in time, and if you've never owned this console then you truly 
+			don't know what you're missing. Check out our bundles and games as we offer a variety of pricing 
+			options based on condition and whether or not you want all original or are happy with brand new third 
+			party accessories which will allow you to start playing for a lower price.
 		</p>
 	</div>
-	<div class="small-12 medium-7 columns" id="game-cont-right">
-		<a href="https://www.youtube.com/channel/UCR38p1O7s2KyLlJwV0yb8Ew"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" id="tube-game"></a>
-		<video class="snes-highlights" autoplay controls loop>
-		  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mp4" type="video/mp4">
-		  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mov" type="video/mov">
-			Your browser does not support the video tag.
-		</video>
+	<div class="small-12 large-7 columns" id="game-cont-right">
+		<a href="https://www.youtube.com/channel/UCyxa1OESMqK7V68zRscpHdA"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" id="tube-game"></a>
+		
+		<?php
+			$youtube_id = '29C7SZW30pA';
+		  echo '<iframe class="home-highlights" src="http://www.youtube.com/embed/'
+		  .$youtube_id.'?autoplay=1&loop=1" allowfullscreen></iframe>'; 
+	  ?>
+
 	</div>
 </div>
 

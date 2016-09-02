@@ -65,22 +65,26 @@
 			</ul>
 		</div>
 	</div>
-
-
-    <div class="footer-clear"></div>
-<!--<footer class="row no-max pad">  -->
-<footer>  
-	<div class="small-6 columns">
-		<p>&copy; <?php bloginfo('name'); ?><?php echo date(' Y'); ?> by
-      <a href="http://williamharpleyportfolio.com/">William Harpley</a>
-    </p>
-	</div>
-	<div class="small-6 columns right">
-		<p><?php do_action( 'wpt_footer' ); ?></p>
-	</div>       
-</footer>
-
+	<footer>  
+		<div class="small-6 columns">
+			<p>&copy; <?php bloginfo('name'); ?><?php echo date(' Y'); ?> by
+	      <a href="http://williamharpleyportfolio.com/">William Harpley</a>
+	    </p>
+		</div>
+		<div class="small-6 columns right">
+			<p><?php do_action( 'wpt_footer' ); ?></p>
+		</div>       
+	</footer>
   <?php wp_footer(); ?>
+  <script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+	  ga('create', 'UA-68657371-9', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
   </body>
 </html>

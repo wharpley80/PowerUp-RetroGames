@@ -12,9 +12,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="shop-cont" id="my-anchor">
+<h1 class="shop-title">Sega Genesis Shop</h1>
+
+<div class="game-shop-cont" id="my-anchor">
+
+    <?php
+	/**
+	* woocommerce_before_main_content hook.
+	*
+	* @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+	* @hooked woocommerce_breadcrumb - 20
+	*/
+        do_action( 'woocommerce_before_main_content' );
+    ?>
+	
 	<div class="shop-wrapper">
-		<div class="small-12 large-9 columns">
+	
+	    <?php
+		/**
+		 * woocommerce_sidebar hook.
+		 *
+		 * @hooked woocommerce_get_sidebar - 10
+		 */
+		do_action( 'woocommerce_sidebar' );
+	     ?>
+	     
+		<div class="small-12 large-9 columns" id="product-side">
 
 			<?php
 				/**
@@ -25,16 +48,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 */
 				do_action( 'woocommerce_archive_description' );
 			?>
-			
-			<div class="woocommerce">
-
-				<h1>Sega Genesis Shop</h1>
-
-				<?php //snes_result_count(); ?>
-
-				<?php //sega_loop(); ?>
-
-			</div>
 
 			<?php if ( have_posts() ) : ?>
 
@@ -70,7 +83,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 					do_action( 'woocommerce_after_shop_loop' );
 				?>
 
-			<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+			<?php else : ?>
+			
+			        <?php sega_loop(); ?>
 
 				<?php wc_get_template( 'loop/no-products-found.php' ); ?>
 
@@ -78,21 +93,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</div>
 	</div>
-
-	<div class="woocommerce">
-	
-		<?php get_sidebar('sega'); ?>
-
-	</div>
-
-	<?php
-		/**
-		 * woocommerce_sidebar hook.
-		 *
-		 * @hooked woocommerce_get_sidebar - 10
-		 */
-		//do_action( 'woocommerce_sidebar' );
-	?>
 
 	<?php
 		/**
@@ -106,19 +106,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </div>
 
-<div class="shop-cont">
+<div id="sticky-foot">
+</div>
 
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
-
-	<div class="snes-top-wrapper">
+<div class="slide-cont">
+	<div class="game-shop-top-wrapper">
 		<div class="small-12 medium-8 columns text-center">
 
 		<?php
@@ -130,7 +122,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
       $the_query = new WP_Query($args);
 
-      ?>
+    ?>
 
       <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
         <ul class="orbit-container" id="sega-orbit-cont">
@@ -174,24 +166,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="small-12 medium-4 columns" id="sonic-side">
 		</div>
+
 	</div>
 </div>
 
 <div class="sega-content-cont">
-	<div class="small-12 medium-5 columns" id="game-cont-left">
+	<div class="small-12 large-5 columns" id="game-cont-left">
 		<h2>Sega Genesis</h2>
 		<hr>
 		<p>
 			The Sega Genesis was released in 1989 and set the bar in what would become the 16 Bit war. The SNES came out a few years later and eventually won the war, but it doesn't take away from the unique and awesome library that the Genesis left behind. Sega went a different direction than Nintendo. They marketed thier console to be cool and attract older kids. There were several titles that were either exclusive to or simply just better on Genesis. Since Sega has disappeared many younger gamers don't recognize or appreciate it's signifigance. This has made it a true gem of a console, and every true gamer should own one. So check out our consoles and library of games and Game ON!
 		</p>
 	</div>
-	<div class="small-12 medium-7 columns" id="game-cont-right">
-		<a href="https://www.youtube.com/channel/UCR38p1O7s2KyLlJwV0yb8Ew"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" id="tube-game"></a>
-		<video class="snes-highlights" autoplay controls loop>
-		  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mp4" type="video/mp4">
-		  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mov" type="video/mov">
-			Your browser does not support the video tag.
-		</video>
+	<div class="small-12 large-7 columns" id="game-cont-right">
+		<a href="https://www.youtube.com/channel/UCyxa1OESMqK7V68zRscpHdA"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" id="tube-game"></a>
+		
+		<?php
+      $youtube_id = 'Ab0xgndSVnE';
+	    echo '<iframe class="home-highlights" src="http://www.youtube.com/embed/'
+	    .$youtube_id.'?autoplay=1&loop=1" allowfullscreen></iframe>'; 
+	  ?>
+		
 	</div>
 </div>
 

@@ -20,6 +20,14 @@
 				    <figcaption class="orbit-caption">Genesis</figcaption>
 				  </li>
 				</ul>
+				<nav class="orbit-bullets">
+          <button class="is-active" data-slide="1"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span>
+          </button>
+          <button class="" data-slide="2"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span>
+          </button>
+          <button class="" data-slide="3"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span>
+          </button>
+        </nav>
 			</div>
 
 		</div>
@@ -33,22 +41,32 @@
 
 <div class="mario">
 
-	<div class="small-12 large-4 columns" id="video-side">
+	<div class="small-12 large-5 columns" id="video-side">
 		<h2 id="retro-style">Subscribe</h2>
 		<hr>
 		<p>
-			Subscribe to our YouTube channel and laugh at our gameplay. We are continually adding walkthroughs
+			Subscribe to our YouTube channel and laugh at our gameplay. We are continually adding playthroughs
 			of classic games for your entertainment.
 		</p>
 		<a href="https://www.youtube.com/channel/UCR38p1O7s2KyLlJwV0yb8Ew"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" class="tube-img"></a>
 	</div>
 
-	<div class="small-12 large-8 columns" id="video">
-		<video class="highlights" autoplay controls loop>
-		  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mp4" type="video/mp4">
-		  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mov" type="video/mov">
-			Your browser does not support the video tag.
-		</video>
+	<div class="small-12 large-7 columns" id="video">
+
+		<?php
+		function getYouTubeIdFromURL($url) {
+		  $url_string = parse_url($url, PHP_URL_QUERY);
+      parse_str($url_string, $args);
+
+      return isset($args['v']) ? $args['v'] : false;
+    }
+
+    $urlYoutube = get_field('highlight_video');
+	  $youtube_id = getYouTubeIdFromURL($urlYoutube);
+	  echo '<iframe class="home-highlights" src="http://www.youtube.com/embed/'
+	  			.$youtube_id.'?autoplay=1&loop=1" allowfullscreen></iframe>'; 
+	  ?>
+
 	</div>
 
 </div>
@@ -94,8 +112,8 @@
 			<h2 id="retro-style"><?php _e( 'Register', 'woocommerce' ); ?></h2>
 			<hr>
 			<p>
-				Register so you can contribute to our forum. We will also notify you when we've added new 
-				walkthroughs or products of your interest.
+				Register and start shopping! We will update you when we get in new products that may interest you and 
+				also send out deals and coupons.
 			</p>
 		</div>
 		<div class="small-12 medium-6 columns" id="reg-side">
@@ -154,22 +172,5 @@
 </div>
 
 </div>
-<!--
-<section class="row">
-  <div class="small-12 columns text-center">
-    <div class="leader">
-    
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-    
-      <h1><?php the_title(); ?></h1>
-      <p><?php the_content(); ?></p>        
 
-	  <?php endwhile; endif; ?>
-    
-    </div>
-  </div>
-</section>
-
-<?php get_template_part('content', 'portfolio'); ?>
--->
 <?php get_footer(); ?>

@@ -9,7 +9,7 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
+//remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
 //remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
@@ -254,14 +254,30 @@ function game_condition_fields() {
   foreach ( $product_cat as $cat ) {
     $current_cat = $cat->slug;
     }
-  if ( $current_cat == 'snes-games' || $current_cat == 'sega-games') {
+  if ( $current_cat == 'snes-games' || $current_cat == 'sega-games' || $current_cat == 'nes-games') {
     ?>
     <h5 class="cond-label">Cart Condition: <?php the_field('cart_condition'); ?></h5>
-    <h5 class="cond-label">Cart Condition: <?php the_field('label_condition'); ?></h5>
+    <h5 class="cond-label">Label Condition: <?php the_field('label_condition'); ?></h5>
     <?php
   }
 }
 add_action( 'woocommerce_single_product_summary', 'game_condition_fields', 9);
+
+function playthrough_link_field() {
+
+  global $post;
+  $product_cat = get_the_terms($post->ID, 'product_cat');
+
+  foreach ( $product_cat as $cat ) {
+    $current_cat = $cat->slug;
+    }
+  if ( $current_cat == 'snes-games' || $current_cat == 'sega-games' || $current_cat == 'nes-games') {
+    ?>
+    <h5 class="cond-label">View Our Playthrough: <?php the_field('view_our_playthrough'); ?></h5>
+    <?php
+  }
+}
+add_action( 'woocommerce_single_product_summary', 'playthrough_link_field', 9);
 
 function wpt_footer_cart_link() {
 
@@ -292,6 +308,9 @@ function unset_shipping_when_free_is_available_all_zones( $rates, $package ) {
   } 
 }
 add_filter( 'woocommerce_package_rates', 'unset_shipping_when_free_is_available_all_zones', 10, 2);
+
+// Display 12 products per page. 
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
 
 // Change number or products per row to 3
 if (!function_exists('loop_columns')) {
@@ -344,6 +363,7 @@ function wpt_create_widget( $name, $id, $description ) {
 
 wpt_create_widget( 'Page Sidebar', 'page', 'Displays on the side of pages with a sidebar' );
 wpt_create_widget( 'Blog Sidebar', 'blog', 'Displays on the side of pages in the blog section' );
+wpt_create_widget( 'Nes Sidebar', 'nes', 'Displays on the side of pages in the nes section' );
 wpt_create_widget( 'Shop Sidebar', 'shop', 'Displays on the side of pages in the shop section' );
 wpt_create_widget( 'SNES Sidebar', 'snes', 'Displays on the side of pages in the snes section' );
 wpt_create_widget( 'Sega Sidebar', 'sega', 'Displays on the side of pages in the sega section' );

@@ -7,12 +7,12 @@
 <?php get_header( 'shop' ); ?>
 
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+	if ( ! defined( 'ABSPATH' ) ) {
+		exit; // Exit if accessed directly
+	}
 ?>
 
-<div class="shop-cont">
+<div class="slide-cont">
 
 	<?php
 		/**
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		do_action( 'woocommerce_before_main_content' );
 	?>
 
-	<div class="snes-top-wrapper">
+	<div class="game-top-wrapper">
 		<div class="small-12 medium-8 columns text-center">
 
 		<?php
@@ -80,24 +80,35 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="small-12 medium-4 columns" id="sonic-side">
 		</div>
+
 	</div>
 </div>
 
 <div class="sega-content-cont">
-	<div class="small-12 medium-5 columns" id="game-cont-left">
+	<div class="small-12 large-5 columns" id="game-cont-left">
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 		<h2><?php the_title(); ?></h2>
 		<hr>
 		<p><?php the_content(); ?></p>
 	<?php endwhile; endif; ?>
 	</div>
-	<div class="small-12 medium-7 columns" id="game-cont-right">
-		<a href="https://www.youtube.com/channel/UCR38p1O7s2KyLlJwV0yb8Ew"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" id="tube-game"></a>
-		<video class="snes-highlights" autoplay controls loop>
-		  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mp4" type="video/mp4">
-		  <source src="<?php bloginfo('template_directory'); ?>/video/MarioWorls.mov" type="video/mov">
-			Your browser does not support the video tag.
-		</video>
+	<div class="small-12 large-7 columns" id="game-cont-right">
+		<a href="https://www.youtube.com/channel/UCyxa1OESMqK7V68zRscpHdA"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" id="tube-game"></a>
+		
+		<?php
+			function getYouTubeIdFromURL($url) {
+			  $url_string = parse_url($url, PHP_URL_QUERY);
+	      parse_str($url_string, $args);
+
+	      return isset($args['v']) ? $args['v'] : false;
+	    }
+
+      $urlYoutube = get_field('highlight_video');
+	    $youtube_id = getYouTubeIdFromURL($urlYoutube);
+	    echo '<iframe class="home-highlights" src="http://www.youtube.com/embed/'
+	    .$youtube_id.'?autoplay=1&loop=1" allowfullscreen></iframe>'; 
+	  ?>
+
 	</div>
 </div>
 
