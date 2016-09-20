@@ -4,6 +4,5 @@
 	  	<i class="fi-magnifying-glass"></i>
     	<input type="text" value="" placeholder="Search" name="s" id="s" />
   	</div>
-    <!--<input type="submit" id="searchsubmit" value="Search" />-->
   </div>
 </form>

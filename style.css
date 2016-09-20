@@ -99,12 +99,7 @@ hr {
 a {
   color: #0400f2;
 }
-/*
-a:hover {
-  color: #7a2ba7;
-  color: #ed1c24;
-}
-*/
+
 a:hover {
   color: #6a7e99;
 }
@@ -122,6 +117,8 @@ a:hover {
   padding-left: 20px;
   color: #000;
   display: inline;
+  font-family: "Asap", sans-serif ;
+  font-weight: 700;
 }
 
 .warranty {
@@ -160,6 +157,18 @@ a:hover {
   margin-top: auto;
   margin-bottom: auto;
   padding: 0;
+}
+
+@media (min-width:1500px) {
+
+  .top-bar {
+    height: 80px;
+  }
+  
+}
+
+.top-bar-left {
+  margin-left: 10px;
 }
 
 #responsive-menu {
@@ -222,6 +231,7 @@ a:hover {
   width: 30%;
   float: right;
   margin-top: 7px;
+  margin-right: 10px;
   padding: 5px 0;
 }
 
@@ -319,8 +329,8 @@ strong a {
 
 @media (min-width:639px) {
 
-  .menu-item-10,
-  .menu-item-27 {
+  .menu-item-272,
+  .menu-item-273 {
     display: none;
   }
 
@@ -346,21 +356,24 @@ strong a {
   font-size: 2em;
   color: #fff;
   position: absolute;
-  padding: 0 5px 5px 15px;
+  padding: 5px 5px 5px 15px;
   left: 0;
 }
 
 ::-webkit-input-placeholder { 
-    color:    #fff;
+  color:    #fff;
 }
+
 :-moz-placeholder { 
    color:    #fff;
    opacity:  1;
 }
+
 ::-moz-placeholder { 
    color:    #fff;
    opacity:  1;
 }
+
 :-ms-input-placeholder { 
    color:    #fff;
 }
@@ -380,7 +393,7 @@ strong a {
   background-color: #b3aae8;
 }
 
-#pp_course_3 {
+#pp_course_7 {
   background-color: transparent !important;
   color: #fff;
   font-size: 1.5em;
@@ -396,10 +409,56 @@ strong a {
 
 @media (max-width:1024px) {
 
-  #pp_course_3 {
+  #pp_course_7 {
     margin-left: 10% !important;
     height: 32px !important;
     width: 80% !important;
+  }
+
+}
+
+.searchbox {
+  background-color: #7a2ba7;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+}
+
+.searchbox:hover {
+  background-color: #b3aae8;
+}
+
+@media (max-width:640px) {
+
+  .searchbox #s {
+     padding-left: 30px;
+  }
+  
+}
+
+.as_magento_product_section:hover {
+  background-color: #b3aae8;
+  color: #fff;
+}
+
+.ui-autocomplete-input {
+  background-color: transparent !important;
+  color: #fff !important;
+  font-size: 18px !important;
+  margin-left: 3% !important;
+  height: 40px !important;
+  width: 95% !important;
+  border: none;
+}
+
+#s_ispbxi_ {
+  padding-left: 30px;
+}
+
+@media (max-width:1024px) {
+
+  #search-8 .searchbox .fi-magnifying-glass {
+    left: 0px;
   }
 
 }
@@ -467,7 +526,7 @@ ul .children {
 *****************************/
 
 .controller-cont {
-  background-image: url('http://localhost/PowerUp-RetroGames/wp-content/themes/woogamer/img/nes_controller.png');
+  background-image: url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/nes_controller.png');
   background-size: 150px 100px;
 }
 
@@ -475,12 +534,21 @@ ul .children {
   text-align: left;
 }
 
+.my-cont {
+  max-width: 1300px;
+  margin-right: auto;
+}
+
+.display-div {
+  height: 500px;
+}
+
 .mario {
   background: linear-gradient(
       rgba(122, 43, 167, 0.95), 
       rgba(122, 43, 167, 0.95)
     );
-  height: 650px;
+  height: 550px;
   margin-top: 30px;
   margin-bottom: 0px;
 }
@@ -488,10 +556,10 @@ ul .children {
 #video-side {
   text-align: center;
   margin-top: 50px;
-  color: #fff;
-  font-size: 2em;
   padding-left: 5%;
   padding-right: 5%;
+  color: #fff;
+  font-size: 2em;
 }
 
 .tube-img {
@@ -508,7 +576,7 @@ ul .children {
 @media (max-width:1024px) {
 
   .mario {
-    height: 1200px;
+    height: 1000px;
   }
 
 }
@@ -516,7 +584,7 @@ ul .children {
 @media (max-width:640px) {
 
   .mario {
-    height: 800px;
+    height: 700px;
   }
 
   .tube-img {
@@ -563,7 +631,6 @@ ul .children {
   margin-right: 5%;
   margin-top: 50px;
   margin-bottom: 50px;
-  border: 2px solid #eeeeee;
 }
 
 @media (max-width:1024px) {
@@ -586,18 +653,19 @@ ul .children {
 @media (max-width:640px) {
 
   .trust-div {
-    height: 700px;
+    height: 600px;
   }
+
 }
 
 .reg-div {
   background: linear-gradient(
-      rgba(203, 203, 211, 0.95), 
-      rgba(203, 203, 211, 0.95)
+      rgba(122, 43, 167, 0.95), 
+      rgba(122, 43, 167, 0.95)
     );
-  height: 350px;
-  margin-top: 0px;
-  margin-bottom: 30px;
+  height: 600px;
+  padding-top: 40px;
+  margin-bottom: 0px;
 }
 
 #reg-left-side {
@@ -607,17 +675,22 @@ ul .children {
   font-size: 2em;
 }
 
-#reg-side {
-  text-align: center;
-  margin-top: 50px;
-  color: #fff;
-  font-size: 2em;
+@media (max-width:1024px) {
+
+  .reg-div {
+    height: 1050px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
 }
 
 @media (max-width:640px) {
 
   .reg-div {
-    height: 500px;
+    height: 650px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
 }
@@ -625,16 +698,6 @@ ul .children {
 /*****************************
          SHOP PAGE
 *****************************/
-/*
-.single-product h1,h2,h3,h4 {
-  font-family: "Asap", sans-serif ;
-  font-weight: 700;
-  color: #2d3339;
-}
-*/
-
-.shop-wrapper {
-}
 
 .woocommerce ul.products li.product {
   width: 29%;
@@ -648,9 +711,6 @@ ul .children {
 
 }
 
-#shop-side {
-  /*float: right;*/
-}
 .woocommerce button.button.alt {
   background-color: #7a2ba7;
 }
@@ -672,23 +732,103 @@ ul .children {
   background-color: #b3aae8;
 }
 
+#snes-page-shop {
+  margin-top: 40px;
+}
+
+#snes-page-shop .woocommerce-breadcrumb  {
+  color: #fff;
+}
+  
+.woocommerce-breadcrumb a {
+  color: #7a2ba7;
+  font-weight: 500;
+}
+
+#snes-page-shop .woocommerce ul.products li.product .button {
+  background-color: #7a2ba7;
+}
+
+#snes-page-shop .woocommerce ul.products li.product .button:hover {
+  background-color: #b3aae8;
+}
+
+#fr_pp_search_widget_3 .ctr_search {
+  background-color: #7a2ba7 !important;
+}
+
+#fr_pp_search_widget_3 .ctr_search:hover {
+  background-color: #84818a !important;
+}
+
+#pp_course_3 {
+  background-color: transparent !important;
+  color: #fff;
+  font-size: 1.5em;
+  margin-left: 15% !important;
+  height: 32px !important;
+  width: 83% !important;
+  border: none;
+}
+
+.ac_results_3 .ac_over {
+  background-color: #7a2ba7;
+}
+
+#woocommerce_product_categories-3 a {
+  color: #7a2ba7;
+}
+
+#woocommerce_product_categories-3 .current-cat a {
+  color: #fff;
+}
+
+#woocommerce_product_categories-3 a:hover {
+  color: #fff;
+}
+
+#woocommerce_product_categories-3 li {
+  color: #fff;
+} 
+
+#search-9 .searchbox:hover {
+  background-color: #84818a;
+}
+
+@media (max-width:1024px) {
+
+  .searchbox .fi-magnifying-glass {
+    left: 40px;
+  }
+
+}
+
 /*****************************
          BLOG PAGE
 *****************************/
-/*
-#blog-page a {
-  color: #0400f2;
+
+.primary h1,h2,h3 {
+  font-family: 'Atomic Age', cursive;
+  font-weight: 200;
 }
 
-#blog-page a:hover {
-  color: #6a7e99;
-}
-*/
-.primary h3 {
-  font-size: 3em;
+.primary h1 a {
+  color: #7a2ba7;;
 }
 
-.primary p {}
+.primary h1 a:hover {
+  color: #b3aae8;
+}
+
+.primary h3 a {
+  font-family: 'Atomic Age', cursive;
+  font-weight: 200;
+  color: #7a2ba7;;
+}
+
+.primary h3 a:hover {
+  color: #b3aae8;
+}
 
 #blog-side h2 {
   font-size: 3em;
@@ -756,6 +896,7 @@ ul .children {
   .woocommerce-MyAccount-navigation li {
     font-size: 1em;
   }
+
 }
 
 .woocommerce-MyAccount-content {
@@ -767,6 +908,7 @@ ul .children {
   .woocommerce-MyAccount-content {
     font-size: 1em;
   }
+
 }
 
 /*****************************
@@ -778,23 +920,29 @@ ul .children {
     rgba(237, 28, 36, 0.90), 
     rgba(237, 28, 36, 0.90)
     ),
-    url('http://localhost/PowerUp-RetroGames/wp-content/themes/woogamer/img/nes_background.jpeg');
+    url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/nes_background.jpeg');
   background-size: 50% 100%;
   height: 600px;
   margin-top: 20px;
-  margin-bottom: 30px;
   margin-left: 0;
+}
+
+@media (max-width:1024px) {
+
+  .nes-content-cont {
+    height: 900px;
+  }
+
 }
 
 @media (max-width:640px) {
 
   .nes-content-cont {
     background-size: 100% 50%;
-    height: 750px;
+    height: 800px;
   }
 
 }
-
 
 .game-top-wrapper {
   margin-top: 30px;
@@ -837,7 +985,7 @@ ul .children {
 
 #mario-side {
   height: 500px;
-  background-image: url('http://localhost/PowerUp-RetroGames/wp-content/themes/woogamer/img/mario_tail.jpg');
+  background-image: url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/mario_tail.jpg');
   background-size: 100% 100%;
 }
 
@@ -850,6 +998,94 @@ ul .children {
 
 }
 
+.nes-shop-cont {
+  background: linear-gradient(
+      rgba(132, 129, 138, 0.90), 
+      rgba(132, 129, 138, 0.90)
+    ),
+    url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/mario_star.jpg');
+  background-size: 100px 100px;
+  background-color: #cbcbd3;
+  background-color: #b3aae8;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#woocommerce_product_categories-5 h2 {
+  color: #fff;
+}
+  
+#nes-page-shop {
+  margin-top: 40px;
+}
+
+#nes-page-shop .woocommerce-breadcrumb  {
+  color: #fff;
+}
+  
+#nes-page-shop .woocommerce-breadcrumb a {
+  color: #ed1c24;
+  font-weight: 500;
+}
+
+#nes-page-shop .woocommerce ul.products li.product .button {
+  background-color: #ed1c24;
+}
+
+#nes-page-shop .woocommerce ul.products li.product .button:hover {
+  background-color: #84818a;
+}
+
+#fr_pp_search_widget_4 .ctr_search {
+  background-color: #ed1c24 !important;
+}
+
+#fr_pp_search_widget_4 .ctr_search:hover {
+  background-color: #84818a !important;
+}
+
+#pp_course_4 {
+  background-color: transparent !important;
+  color: #fff;
+  font-size: 1.5em;
+  margin-left: 15% !important;
+  height: 32px !important;
+  width: 83% !important;
+  border: none;
+}
+
+.ac_results_4 .ac_over {
+  background-color: #ed1c24;
+}
+
+#woocommerce_product_categories-5 a {
+  color: #ed1c24;
+  font-weight: 500;
+}
+
+#woocommerce_product_categories-5 a:hover {
+  color: #fff;
+}
+
+#woocommerce_product_categories-5 li {
+  color: #fff;
+}
+
+#search-10 .searchbox {
+  background-color: #ed1c24;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+}
+
+#search-10 .searchbox:hover {
+  background-color: #84818a;
+}
+
+#search-10 .searchbox .fi-magnifying-glass {
+  left: 40px;
+}
+
 /*****************************
         SNES PAGE
 *****************************/
@@ -860,7 +1096,7 @@ ul .children {
 
 #donkey-kong {
   height: 500px;
-  background-image: url('http://localhost/PowerUp-RetroGames/wp-content/themes/woogamer/img/donkey_kong.jpg');
+  background-image: url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/donkey_kong.jpg');
   background-size: 100% 100%;
 }
 
@@ -875,21 +1111,22 @@ ul .children {
 
 .snes-content-cont {
   background: linear-gradient(
-    rgba(179, 170, 232, 0.95), 
-    rgba(179, 170, 232, 0.95)
+    rgba(122, 43, 167, 0.95), 
+    rgba(122, 43, 167, 0.95)
     ),
-    url('http://localhost/PowerUp-RetroGames/wp-content/themes/woogamer/img/mariokart_background.jpg') no-repeat;
+    url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/mariokart_background.jpg') no-repeat;
   background-size: 50% 100%;
   height: 600px;
   margin-top: 20px;
-  margin-bottom: 30px;
   margin-left: 0;
 }
 
 @media (max-width:1024px) {
+
   .snes-content-cont {
     height: 900px;
-   }
+  }
+
 }
 
 @media (max-width:640px) {
@@ -928,20 +1165,99 @@ ul .children {
   color: #7a2ba7;
 }
 
+.snes-shop-cont {
+  background: linear-gradient(
+      rgba(179, 170, 232, 0.90), 
+      rgba(179, 170, 232, 0.90)
+    ),
+    url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/dk_barrels.png');
+  background-size: 150px 100px;
+  background-color: #cbcbd3;
+  background-color: #b3aae8;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#woocommerce_product_categories-4 h2 {
+  color: #fff;
+}
+  
+#snes-page-shop {
+  margin-top: 40px;
+}
+
+#snes-page-shop .woocommerce-breadcrumb  {
+  color: #fff;
+}
+  
+#snes-page-shop .woocommerce-breadcrumb a {
+  color: #7a2ba7;
+  font-weight: 500;
+}
+
+#snes-page-shop .woocommerce ul.products li.product .button {
+  background-color: #7a2ba7;
+}
+
+#snes-page-shop .woocommerce ul.products li.product .button:hover {
+  background-color: #b3aae8;
+}
+
+#fr_pp_search_widget_5 .ctr_search {
+  background-color: #7a2ba7 !important;
+}
+
+#fr_pp_search_widget_5 .ctr_search:hover {
+  background-color: #84818a !important;
+}
+
+#pp_course_5 {
+  background-color: transparent !important;
+  color: #fff;
+  font-size: 1.5em;
+  margin-left: 15% !important;
+  height: 32px !important;
+  width: 83% !important;
+  border: none;
+}
+
+.ac_results_5 .ac_over {
+  background-color: #7a2ba7;
+}
+
+#woocommerce_product_categories-4 a {
+  color: #7a2ba7;
+}
+
+#woocommerce_product_categories-4 a:hover {
+  color: #fff;
+}
+
+#woocommerce_product_categories-4 li {
+  color: #fff;
+}  
+
+#search-11 .searchbox .fi-magnifying-glass {
+  left: 40px;
+}
+  
+#search-11 .searchbox:hover {
+  background-color: #84818a;
+}
+
 /*****************************
         SEGA PAGE
 *****************************/
 
 .sega-content-cont {
   background: linear-gradient(
-    rgba(0, 70, 162, 0.95), 
-    rgba(0, 70, 162, 0.95)
+    rgba(0, 70, 162, 0.90), 
+    rgba(0, 70, 162, 0.90)
     ),
-    url('http://localhost/PowerUp-RetroGames/wp-content/themes/woogamer/img/chaos_emeralds.png');
-  background-size: 50% 100%;
+    url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/sonic_ring.png');
+  background-size: 200px 200px;
   height: 650px;
   margin-top: 20px;
-  margin-bottom: 30px;
   margin-left: 0;
 }
 
@@ -956,15 +1272,15 @@ ul .children {
 @media (max-width:640px) {
 
   .sega-content-cont {
-    background-size: 100% 50%;
-    height: 900px;
+    background-size: 100% 100%;
+    height: 950px;
   }
 
 }
 
 #sonic-side {
   height: 500px;
-  background-image: url('http://localhost/PowerUp-RetroGames/wp-content/themes/woogamer/img/sonic_nono.jpg');
+  background-image: url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/sonic_nono.jpg');
   background-size: 100% 100%;
 }
 
@@ -975,6 +1291,100 @@ ul .children {
     background-size: 100% 100%;
   }
 
+}
+
+.sega-shop-cont { 
+  background: linear-gradient(
+    rgba(56, 56, 54, 0.80), 
+    rgba(56, 56, 54, 0.80)
+    ),
+    url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/chaos_emeralds.png');
+  background-size: 150px 150px;
+  background-color: #cbcbd3;
+  background-color: #b3aae8;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#sega-page-shop {
+  margin-top: 40px;
+}
+  
+#sega-page-shop .woocommerce-breadcrumb a {
+  color: #29c5f6;
+}
+
+#sega-page-shop .woocommerce-breadcrumb  {
+  color: #fff;
+}
+
+#sega-page-shop .woocommerce ul.products li.product .button {
+  background-color: #0c4fa6;
+}
+
+#sega-page-shop .woocommerce ul.products li.product .button:hover {
+  background-color: #383836;
+}
+
+#woocommerce_product_categories-2 h2 {
+  color: #fff;
+}
+
+#woocommerce_product_categories-2 li a {
+  color: #29c5f6;
+}
+
+#woocommerce_product_categories-2 li a:hover {
+  color: #fff;
+}
+
+#woocommerce_product_categories-2 li  {
+  color: #fff;
+}
+
+#woocommerce_product_categories-2 li:hover  {
+  color: #fff;
+}
+
+.sega-shop-cont .woocommerce-breadcrumb a {
+  color: #fde90c;
+}
+
+#fr_pp_search_widget_6 .ctr_search {
+  background-color: #0c4fa6 !important;
+}
+
+#fr_pp_search_widget_6 .ctr_search:hover {
+  background-color: #383836 !important;
+}
+
+#pp_course_6 {
+  background-color: transparent !important;
+  color: #fff;
+  font-size: 1.5em;
+  margin-left: 15% !important;
+  height: 32px !important;
+  width: 83% !important;
+  border: none;
+}
+
+.ac_results_6 .ac_over {
+  background-color: #0c4fa6;
+}
+
+#search-12 .searchbox {
+  background-color: #0c4fa6;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+}
+
+#search-12 .searchbox:hover {
+  background-color: #383836;
+}
+
+#search-12 .searchbox .fi-magnifying-glass {
+  left: 40px;
 }
 
 /*****************************
@@ -1118,14 +1528,17 @@ li .orbit-caption {
   vertical-align: middle;
   margin: 0 0 20px;
 }
+
 .user-avatar img {
   display: block;
 }
+
 .user-avatar.small {
   width: 24px;
   height: 24px;
   margin: 0 5px 0 0;
 }
+
 .user-avatar.large {
   width: auto;
   height: auto;
@@ -1137,10 +1550,13 @@ li .orbit-caption {
   margin: 20px auto 40px;
   display: block;
 }
+
 @media all and (min-width: 640px) {
+  
   .author-bio .user-avatar {
     margin: 20px 0 40px;
   }
+
 }
 
 .avatar {
@@ -1186,7 +1602,7 @@ li .orbit-caption {
     width: 70%;
     margin-left: 15%;
     margin-right: 15%;
-    }
+  }
 
 }
 
@@ -1202,28 +1618,10 @@ li .orbit-caption {
 
 }
 
-.snes-highlights {
-  height: 400px;
-  margin-top: 0;
-  margin-bottom: 100px;
-  width: 90%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-@media (max-width:640px) {
-
-  .snes-highlights {
-    margin-top: 0;
-    height: 200px;
-  }
-
-}
-
 iframe {
   border: 2px solid #eeeeee;
 }
-
+  
 /*****************************
            SHOP
 *****************************/
@@ -1231,6 +1629,7 @@ iframe {
 .shop-cont {
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 100px;
 }
 
 .slide-cont {
@@ -1252,7 +1651,6 @@ iframe {
 
 .foot-cont {
   text-align: center;
-  margin-top: 40px;
   padding-top: 40px;
   background-color: #f1f1f1;
 }
@@ -1301,7 +1699,7 @@ iframe {
 
 .foot-grid ul li a:hover {
   color: #fff;
-  }
+}
 
 .foot-grid a:hover {
   color: #0400f2;
@@ -1322,12 +1720,12 @@ iframe {
 }
 
 #foot-menu li a:hover {
-color: #fff;
+  color: #fff;
 }
 
 .foot-cont li a:hover {
-  #fff;
-  }
+  color: #fff;
+}
 
 .footer-clear {
   display: block;
@@ -1469,41 +1867,51 @@ footer .social-links {
   float: right;
   width: 100%;
 }
+
 .woocommerce div.product div.images a.woocommerce-main-image {
   width: 80%;
   float: left;
   display: block;
 }
+
 .woocommerce div.product div.images div.thumbnails {
   float: right;
   width: 18%;
   padding-top: 0;
 }
+
 .woocommerce div.product div.thumbnails a, .woocommerce-page div.product div.thumbnails a {
   width: 100%
 }
+
 .single-product span.onsale {
   top: 20px;
   left: 0;
   font-size: 1.6rem;
 }
+
 .woocommerce div.product p.price, .woocommerce div.product span.price {
   font-size: 1.4rem;
 }
+
 .woocommerce div.product p.price del, .woocommerce div.product span.price del {
   display: inline;
 }
+
 .woocommerce div.product form.cart, .woocommerce div.product p.cart {
   margin: 40px auto;
-  width: 80%;
+  width: 100%;
 }
+
 .woocommerce div.product form.cart input.input-text.qty.text {
   font-size: 1rem;
   padding: 10px;
 }
+
 .woocommerce div.product form.cart .variations_button {
   margin-top: 10px;
 }
+
 .woocommerce div.product form.cart button.single_add_to_cart_button.button {
   float: left;
   padding: 10px 18px;
@@ -1541,13 +1949,10 @@ table thead, table tbody, table tfoot {
 }
 
 .woocommerce div.product form.cart {
-  margin: 20px;
+  margin: 10px 0;
 }
 
 .woocommerce div.product form.cart .variations label {
-  /*font-family: 'Atomic Age', cursive;
-  font-weight: 200;
-  font-size: 24px;*/
   display: inline;
   color: #2d3339;
 }
@@ -1571,14 +1976,17 @@ table thead, table tbody, table tfoot {
   margin: 0;
   margin-right: 4px;
 }
+
 .single-product #reviews #comments h2 {
   display none;
 }
+
 .woocommerce #reviews #comments ol.commentlist li img.avatar {
   float: right;
-  width: 18%;
+  width: 10%;
   position: relative;
 }
+
 .woocommerce #reviews #comments ol.commentlist li .comment-text {
   float: left;
   width: 80%;
@@ -1586,27 +1994,34 @@ table thead, table tbody, table tfoot {
   padding: 0;
   border: none;
 }
+
 .single-product #reviews #comments ol.commentlist li .comment-text p.meta {
   font-size: 1rem;
 }
+
 p.woocommerce-verification-required {
   font-size: .8rem;
   color: #999;
   font-size: italic;
 }
+
 .single-product .related.products h2 {
   font-size: 1.4rem;
   margin: 40px 0 10px;
 }
+
 .single-product .related.products ul.products li.product {
   width: 44%;
 }
+
 .single-product .related.products ul.products li.product a img {
   margin-bottom: 0;
 }
+
 .single-product .related.products h3 {
   font-weight: normal;
 }
+
 .single-product .related.products .price,
 .single-product .related.products .button,
 .single-product .related.products .onsale {
@@ -1614,11 +2029,11 @@ p.woocommerce-verification-required {
 }
 
 div .upsells {
-margin-top: 20px;
+  margin-top: 20px;
 }
 
 .woocommerce ul.products li.product, .woocommerce-page ul.products li.product {
-margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /*****************************
@@ -1628,9 +2043,11 @@ margin-bottom: 0;
 footer .right {
   text-align: right;  
 }
+
 footer .right p {
   float: right;
 }
+
 footer a.btn {
   font-size: .8rem;
   margin-left: 5px;
@@ -1644,6 +2061,7 @@ footer a.btn {
   border-radius: 2px;
   box-shadow: none;
 }
+
 footer a.btn.alt {
   background-color: white;
   border-color: #ccc;
@@ -1659,27 +2077,22 @@ footer a.btn.alt {
 
 }
 
-footer {
-  /*height: 40px;*/
-}
-/*
-@media all and (min-width: 40.063em) {
-  nav#main-nav li:last-child {
-    display: none;
-  }
-}*/
 .woocommerce-cart table.cart img {
   width: 64px;
 }
+
 .woocommerce-cart table td.product-name {
   font-size: 1rem;
 }
+
 .woocommerce table.shop_table {
   font-size: 140%;
 }
+
 label {
   text-align: left;
 }
+
 input[type=text],
 input[type=email],
 textarea {
@@ -1701,9 +2114,11 @@ textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 textarea {
   border: 1px #ccc solid;
 }
+
 input[type=text]:hover,
 input[type=email]:hover,
 textarea:hover {
@@ -1711,6 +2126,7 @@ textarea:hover {
   -moz-box-shadow: insert 0 0 0 2px #9aa5aa;
   box-shadow: insert 0 0 0 2px #9aa5aa; 
 }
+
 input[type=text]:focus,
 input[type=email]:focus,
 textarea:focus {
@@ -1718,77 +2134,245 @@ textarea:focus {
   -moz-box-shadow: insert 0 0 0 2px #384047;
   box-shadow: insert 0 0 0 2px #384047; 
 }
+
 .woocommerce-cart .cross-sells h2 {
   font-size: 1.2rem;
   text-align: left;
 }
+
 .woocommerce-cart .cart-collaterals .cart_totals table {
   width: 100%
 }
+
 a.shipping-calculator-button {
   font-size: 1rem;
   text-decoration: underline;
 }
+
 .woocommerce-cart .cart_totals h2 {
   display: none;
 }
+
 .woocommerce-cart .cart_totals table {
   font-size: 140%;
 }
+
 .woocommerce-cart .variation p {
   font-size: 1rem;
 }
+
 .woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
   font-size: 1.4rem;
 }
 
-/* Checkout */
+/*****************************
+         CHECKOUT
+*****************************/
 
 p#billing_postcode_field + .clear {
   display: none;
 }
+
 .woocommerce-checkout input.button[type=submit] {
   font-size: 200%;
 }
+
 address {
   font-size: 1rem;
   line-height: 1.6rem;
 }
+
 .woocommerce-account .address .title h3 {
   float: none;
 }
 
-
-
-
 .included {
-font-size: 18px;
-color: #77a464;
+  font-size: 18px;
+  color: #77a464;
 }
 
 @media all and (min-width: 640px) {
 
-.woocommerce ul.products li.product {
-  max-height: 350px;
-  min-height: 350px;
-}
+  .woocommerce ul.products li.product {
+    max-height: 350px;
+    min-height: 350px;
+  }
 
 }
 
+/*****************************
+            MISC
+*****************************/
+
+.playthrough-label {
+  display: inline;
+  font-family: "Asap", sans-serif;
+  font-weight: 700;
+  color: #2d3339;
+}
+
+.playthrough-img {
+  margin: 0 0 10px 20px;
+  height: 60px;
+  width: 60px;
+}
+
+.woocommerce .up-sells  ul.products li.product {
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.woocommerce .related ul.products li.product {
+  min-height: 200px;
+  max-height: 200px;
+}
 
 ul .current-cat {
   padding-left: 15px;
-  background-color: #b3aae8;
+  background-color: #7a2ba7;
   color: #fff;
 }
+
 ul .current-cat a {
-color: #fff;
+  color: #fff;
 }
 
 #my-anchor {
-    margin-top: 10px !important;
+  margin-top: 10px !important;
 }
 
 .shop-title {
-text-align: center;
+  text-align: center;
+}
+
+.game-shop-cont {
+  background: linear-gradient(
+      rgba(179, 170, 232, 0.90), 
+      rgba(179, 170, 232, 0.90)
+    ),
+    url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/mario_star.jpg');
+  background-size: 100px 100px;
+  background-color: #cbcbd3;
+  background-color: #b3aae8;
+  margin-left: 20px;
+}
+
+.game-shop-cont .row {
+  margin-right: 0;
+  padding-right: 0;
+}
+
+#product-side {
+  background-color: #fff;
+  margin-right: 0px;
+  margin-top: -55px;
+  height: 100%;
+}
+
+@media (max-width:1024px) {
+
+  #product-side {
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+}
+
+#nes-product-side {
+  background-color: #fff;
+  margin-right: -20px;
+  margin-top: -55px;
+  padding-top: 20px;
+}
+
+@media (max-width:1024px) {
+
+  #nes-product-side {
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+}
+
+.widget {
+  padding-bottom: 20px;
+}
+
+.woocommerce-breadcrumb {
+  padding-top: 10px;
+}
+
+.woocommerce .woocommerce-breadcrumb {
+  padding-top: 10px;
+}
+
+.products {
+  margin-bottom: 100px;
+}
+
+.woocommerce div.product form.cart .variations label {
+  font-size: 24px;
+}
+
+.woocommerce div.product form.cart .variations .value label {
+  font-size: 14px;
+}
+
+.woocommerce div.product form.cart .variations .value label:hover {
+  color: #77a464;
+  font-size: 14px;
+}
+
+.woocommerce div.product .product_title {
+  font-size: 35px; 
+}
+  
+.shop-wrapper .widget h2 {
+  color: #fff;
+  font-family: 'Atomic Age', cursive;
+  font-weight: 200;
+}
+
+.results-cont {
+  text-align: center;
+}
+  
+#isp_search_box_container {
+  display: none !important;
+}
+
+.isp_facet_title {
+  color: #000 !important;
+  font-size: 24px;
+  font-family: 'Atomic Age', cursive;
+  font-weight: 200;
+}
+
+.isp_facet_value a {
+  font-size: 18px;
+  color: #7a2ba7 !important;
+}
+
+.isp_single_facet_wrapper .isp_facet_value a:hover {
+  padding-left: 10px !important;
+  background-color: #7a2ba7;
+  color: #fff !important;
+}
+
+.isp_facet_value_name_not_selected:hover {
+  color: #fff !important;
+}
+
+#isp_left_container .isp_facet_value a div.isp_facet_check_box_icon {
+  margin-left: 20px !important;
+}
+
+.isp_favorite {
+  top: -10px !important;
+}
+  
+li.isp_grid_product input[type="submit"].isp_add_to_cart_btn {
+  background-color: #7a2ba7 !important;
 }

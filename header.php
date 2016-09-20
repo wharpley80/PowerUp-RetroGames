@@ -15,37 +15,35 @@
       <h5 class="warranty"><i class="fi-shield"></i>60 DAY WARRANTY on ALL orders!</h5>
     </div>
     <div class="top-bar">
-      <div class="container">
-        <span data-responsive-toggle="responsive-menu" data-hide-for="large">
-          <button class="menu-icon dark" type="button" data-toggle></button>
-        </span>
-        <div id="responsive-menu">  
-          <div class="top-bar-left">
+      <span data-responsive-toggle="responsive-menu" data-hide-for="large">
+        <button class="menu-icon dark" type="button" data-toggle></button>
+      </span>
+      <div id="responsive-menu">  
+        <div class="top-bar-left">
 
-            <?php 
-              $defaults = array(
-                'container' => false,
-                'theme_location' => 'primary-menu',
-                'menu_class' => 'no-bullet',
-                'menu_class' => 'dropdown',
-                'menu_id' => 'responsive-menu'
-              );
+          <?php 
+            $defaults = array(
+              'container' => false,
+              'theme_location' => 'primary-menu',
+              'menu_class' => 'no-bullet',
+              'menu_class' => 'dropdown',
+              'menu_id' => 'responsive-menu'
+            );
 
-              wp_nav_menu( $defaults );
-            ?>
-
-          </div>
-        </div>
-        <a href="<?php bloginfo('url'); ?>"><img class="logo-img" src="<?php bloginfo('template_directory'); ?>/img/My_Logo.png"></a>
-        <div class="top-bar-right">
-          <?php
-            global $woocommerce;
-            $cart_url = $woocommerce->cart->get_cart_url();
-            $checkout_url = $woocommerce->cart->get_checkout_url();
+            wp_nav_menu( $defaults );
           ?>
-          <a href="<?php echo $cart_url; ?>"><i class="fi-shopping-cart"></i>Cart</a>
-          <a href="<?php echo $checkout_url; ?>"><i class="fi-check"></i>Checkout</a>
+
         </div>
+      </div>
+      <a href="<?php bloginfo('url'); ?>"><img class="logo-img" src="<?php bloginfo('template_directory'); ?>/img/My_Logo.png"></a>
+      <div class="top-bar-right">
+        <?php
+          global $woocommerce;
+          $cart_url = $woocommerce->cart->get_cart_url();
+          $checkout_url = $woocommerce->cart->get_checkout_url();
+        ?>
+        <a href="<?php echo $cart_url; ?>"><i class="fi-shopping-cart"></i>Cart</a>
+        <a href="<?php echo $checkout_url; ?>"><i class="fi-check"></i>Checkout</a>
       </div>
     </div>
     <div class="main-search">

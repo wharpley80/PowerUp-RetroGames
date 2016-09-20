@@ -9,14 +9,30 @@ remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 3
 remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
-//remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10);
-//remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
     
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 10 );
 add_action( 'woocommerce_before_single_product_summary', 'comments_template', 30);
 add_action( 'wpt_footer', 'wpt_footer_cart_link' );
+
+function special_nav_class($classes, $item){
+  
+  if( in_array('current-menu-item', $classes) ){
+    $classes[] = 'active ';
+  }
+  return $classes;
+
+}
+//add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+
+// Display Price For Variable Product With Same Variations Prices
+add_filter('woocommerce_available_variation', function ($value, $object = null, $variation = null) {
+  if ($value['price_html'] == '') {
+    $value['price_html'] = '<span class="price">' . $variation->get_price_html() . '</span>';
+  }
+  return $value;
+}, 10, 3);
 
 // Counts the resuts for the NES page
 function nes_result_count() {
@@ -60,9 +76,8 @@ function nes_loop() {
 
   $nes_loop = new WP_Query( $args );
    
-  wc_product_post_class();
   ?>
-
+ 
   <ul class="products">
    
     <?php while ( $nes_loop->have_posts() ) : $nes_loop->the_post(); global $product; ?>
@@ -90,7 +105,7 @@ function nes_loop() {
     <?php wp_reset_query(); ?>
 
   </ul>
-
+  
 <?php
 }
 
@@ -136,7 +151,6 @@ function snes_loop() {
 
   $snes_loop = new WP_Query( $args );
    
-  wc_product_post_class();
   ?>
 
   <ul class="products">
@@ -212,7 +226,6 @@ function sega_loop() {
 
   $snes_loop = new WP_Query( $args );
    
-  wc_product_post_class();
   ?>
 
   <ul class="products">
@@ -246,6 +259,7 @@ function sega_loop() {
 <?php
 }
 
+// Displays Cart Cond and Label Cond fields if the product is a Game
 function game_condition_fields() {
 
   global $post;
@@ -253,7 +267,8 @@ function game_condition_fields() {
 
   foreach ( $product_cat as $cat ) {
     $current_cat = $cat->slug;
-    }
+  }
+
   if ( $current_cat == 'snes-games' || $current_cat == 'sega-games' || $current_cat == 'nes-games') {
     ?>
     <h5 class="cond-label">Cart Condition: <?php the_field('cart_condition'); ?></h5>
@@ -263,6 +278,7 @@ function game_condition_fields() {
 }
 add_action( 'woocommerce_single_product_summary', 'game_condition_fields', 9);
 
+// Displays a link to our YouTube Playthrough if availble
 function playthrough_link_field() {
 
   global $post;
@@ -270,14 +286,26 @@ function playthrough_link_field() {
 
   foreach ( $product_cat as $cat ) {
     $current_cat = $cat->slug;
-    }
+  }
+    
+  $fields = get_fields();
+  
+  foreach ($fields as $field) {
+    $play = $field;
+  }
+  
   if ( $current_cat == 'snes-games' || $current_cat == 'sega-games' || $current_cat == 'nes-games') {
-    ?>
-    <h5 class="cond-label">View Our Playthrough: <?php the_field('view_our_playthrough'); ?></h5>
+
+    if ($play === 'none' ) { ?>
+ 
     <?php
+    } else { ?>
+      <h5 class="playthrough-label">View Our Playthrough: </h5>
+      <a href="<?php the_field('view_our_playthrough'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" class="playthrough-img"></a> <?php
+    }
   }
 }
-add_action( 'woocommerce_single_product_summary', 'playthrough_link_field', 9);
+add_action( 'woocommerce_single_product_summary', 'playthrough_link_field', 20);
 
 function wpt_footer_cart_link() {
 
@@ -306,6 +334,7 @@ function unset_shipping_when_free_is_available_all_zones( $rates, $package ) {
   } else {
     return $all_free_rates;
   } 
+  
 }
 add_filter( 'woocommerce_package_rates', 'unset_shipping_when_free_is_available_all_zones', 10, 2);
 
@@ -314,9 +343,11 @@ add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 )
 
 // Change number or products per row to 3
 if (!function_exists('loop_columns')) {
+  
   function loop_columns() {
     return 3; // 3 products per row
   }
+
 }
 add_filter('loop_shop_columns', 'loop_columns');
 
@@ -331,7 +362,7 @@ function wpt_custom_billing_fields( $fields = array() ) {
 add_filter( 'woocommerce_billing_fields', 'wpt_custom_billing_fields' );
 
 function wpt_excerpt_length( $length ) {
-  return 16;
+  return 50;
 }
 add_filter( 'excerpt_length', 'wpt_excerpt_length', 999 );
 
@@ -344,6 +375,7 @@ function register_theme_menus() {
       'game-menu' => __( 'Game Menu' )
     )
   );
+
 }
 add_action( 'init', 'register_theme_menus' );
 
@@ -363,8 +395,8 @@ function wpt_create_widget( $name, $id, $description ) {
 
 wpt_create_widget( 'Page Sidebar', 'page', 'Displays on the side of pages with a sidebar' );
 wpt_create_widget( 'Blog Sidebar', 'blog', 'Displays on the side of pages in the blog section' );
-wpt_create_widget( 'Nes Sidebar', 'nes', 'Displays on the side of pages in the nes section' );
 wpt_create_widget( 'Shop Sidebar', 'shop', 'Displays on the side of pages in the shop section' );
+wpt_create_widget( 'Nes Sidebar', 'nes', 'Displays on the side of pages in the nes section' );
 wpt_create_widget( 'SNES Sidebar', 'snes', 'Displays on the side of pages in the snes section' );
 wpt_create_widget( 'Sega Sidebar', 'sega', 'Displays on the side of pages in the sega section' );
 wpt_create_widget( 'Head Sidebar', 'head', 'Displays on the header of pages' );
@@ -390,6 +422,6 @@ function wpt_theme_js() {
 }
 add_action( 'wp_enqueue_scripts', 'wpt_theme_js' );
 
-//add_filter( 'show_admin_bar', '__return_false' );
+add_filter( 'show_admin_bar', '__return_false' );
 
 ?>

@@ -51,7 +51,7 @@
 			<hr>
 			<ul>
 				<li>
-					<a href=""><img src="<?php bloginfo('template_directory'); ?>/img/social/Facebook.png" class="social-icon">Facebook</a>
+					<a href="https://www.facebook.com/PowerUpRetroGames"><img src="<?php bloginfo('template_directory'); ?>/img/social/Facebook.png" class="social-icon">Facebook</a>
 				</li>
 				<li>
 					<a href="http://twitter.com/PowerUpRetroGms/"><img src="<?php bloginfo('template_directory'); ?>/img/social/Twitter.png" class="social-icon">Twitter</a>

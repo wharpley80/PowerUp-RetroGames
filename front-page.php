@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div class="row no-max pad">
-	<div class="container">
+	<div class="front-cont">
 		<div class="small-12 large-8 columns text-center">
 
 			<div class="orbit" role="region" data-orbit>
@@ -86,7 +86,7 @@
 	</div>
 
 	<div class="small-12 large-7 columns">
-		<img src="<?php bloginfo('template_directory'); ?>/img/snes_lot.jpg" class="trust-img">
+		<img src="<?php bloginfo('template_directory'); ?>/img/MyCollection.jpg" class="trust-img">
 	</div>
 
 	<div class="large-5 columns" id="trust-side">
