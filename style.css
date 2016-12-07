@@ -784,7 +784,7 @@ ul .children {
 }
 
 #woocommerce_product_categories-3 a:hover {
-  color: #fff;
+  color: #b3aae8;
 }
 
 #woocommerce_product_categories-3 li {
@@ -807,13 +807,16 @@ ul .children {
          BLOG PAGE
 *****************************/
 
-.primary h1,h2,h3 {
+.primary h2,h3 {
   font-family: 'Atomic Age', cursive;
   font-weight: 200;
 }
 
-.primary h1 a {
-  color: #7a2ba7;;
+.primary h1 {
+  font-family: "Asap", sans-serif ;
+  font-weight: 700;
+  color: #7a2ba7;
+  color: #2d3339;
 }
 
 .primary h1 a:hover {
@@ -821,9 +824,7 @@ ul .children {
 }
 
 .primary h3 a {
-  font-family: 'Atomic Age', cursive;
-  font-weight: 200;
-  color: #7a2ba7;;
+  color: #7a2ba7;
 }
 
 .primary h3 a:hover {
@@ -999,20 +1000,23 @@ ul .children {
 }
 
 .nes-shop-cont {
+/*
   background: linear-gradient(
       rgba(132, 129, 138, 0.90), 
       rgba(132, 129, 138, 0.90)
     ),
     url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/mario_star.jpg');
+    */
   background-size: 100px 100px;
   background-color: #cbcbd3;
   background-color: #b3aae8;
+  background-color: #fff;
   margin-left: 20px;
   margin-right: 20px;
 }
 
 #woocommerce_product_categories-5 h2 {
-  color: #fff;
+  color: #ed1c24;
 }
   
 #nes-page-shop {
@@ -1166,20 +1170,23 @@ ul .children {
 }
 
 .snes-shop-cont {
+/*
   background: linear-gradient(
       rgba(179, 170, 232, 0.90), 
       rgba(179, 170, 232, 0.90)
     ),
     url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/dk_barrels.png');
   background-size: 150px 100px;
+  */
   background-color: #cbcbd3;
   background-color: #b3aae8;
+  background-color: #fff;
   margin-left: 20px;
   margin-right: 20px;
 }
 
 #woocommerce_product_categories-4 h2 {
-  color: #fff;
+  color: #7a2ba7;
 }
   
 #snes-page-shop {
@@ -1230,7 +1237,7 @@ ul .children {
 }
 
 #woocommerce_product_categories-4 a:hover {
-  color: #fff;
+  color: #b3aae8;
 }
 
 #woocommerce_product_categories-4 li {
@@ -1294,14 +1301,17 @@ ul .children {
 }
 
 .sega-shop-cont { 
+/*
   background: linear-gradient(
     rgba(56, 56, 54, 0.80), 
     rgba(56, 56, 54, 0.80)
     ),
     url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/chaos_emeralds.png');
+    */
   background-size: 150px 150px;
   background-color: #cbcbd3;
   background-color: #b3aae8;
+  background-color: #fff;
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -1311,7 +1321,7 @@ ul .children {
 }
   
 #sega-page-shop .woocommerce-breadcrumb a {
-  color: #29c5f6;
+  color: #0c4fa6;
 }
 
 #sega-page-shop .woocommerce-breadcrumb  {
@@ -1327,11 +1337,12 @@ ul .children {
 }
 
 #woocommerce_product_categories-2 h2 {
-  color: #fff;
+  color: #0c4fa6;
 }
 
 #woocommerce_product_categories-2 li a {
   color: #29c5f6;
+  color: #0c4fa6;
 }
 
 #woocommerce_product_categories-2 li a:hover {
@@ -2200,10 +2211,6 @@ address {
 
 }
 
-/*****************************
-            MISC
-*****************************/
-
 .playthrough-label {
   display: inline;
   font-family: "Asap", sans-serif;
@@ -2246,14 +2253,17 @@ ul .current-cat a {
 }
 
 .game-shop-cont {
+/*
   background: linear-gradient(
       rgba(179, 170, 232, 0.90), 
       rgba(179, 170, 232, 0.90)
     ),
     url('http://www.powerupretrogames.com/wp-content/themes/woogamer/img/mario_star.jpg');
+    */
   background-size: 100px 100px;
   background-color: #cbcbd3;
   background-color: #b3aae8;
+  background-color: #fff;
   margin-left: 20px;
 }
 
@@ -2330,7 +2340,7 @@ ul .current-cat a {
 }
   
 .shop-wrapper .widget h2 {
-  color: #fff;
+  color: #7a2ba7;
   font-family: 'Atomic Age', cursive;
   font-weight: 200;
 }
@@ -2375,4 +2385,8 @@ ul .current-cat a {
   
 li.isp_grid_product input[type="submit"].isp_add_to_cart_btn {
   background-color: #7a2ba7 !important;
+}
+
+.blog-img {
+width: 600px;
 }

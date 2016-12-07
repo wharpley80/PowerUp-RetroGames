@@ -55,9 +55,22 @@ function nes_result_count() {
     $last     = min( $total, $nes_loop->get( 'posts_per_page' ) * $paged );
 
     if ( $total <= $per_page || -1 === $per_page ) {
-      printf( _n( 'Showing the single result', 'Showing all %d results', $total, 'woocommerce' ), $total );
+      printf( 
+        _n( 'Showing the single result', 
+            'Showing all %d results', 
+            $total, 
+            'woocommerce'
+        ), $total 
+      );
     } else {
-      printf( _nx( 'Showing the single result', 'Showing %1$d&ndash;%2$d of %3$d results', $total, '%1$d = first, %2$d = last, %3$d = total', 'woocommerce' ), $first, $last, $total );
+      printf( 
+        _nx( 'Showing the single result', 
+             'Showing %1$d&ndash;%2$d of %3$d results', 
+             $total, 
+             '%1$d = first, %2$d = last, %3$d = total', 
+             'woocommerce' 
+        ), $first, $last, $total 
+      );
     }
     ?>
   </p>
@@ -78,28 +91,22 @@ function nes_loop() {
    
   ?>
  
-  <ul class="products">
-   
+  <ul class="products"> 
+
     <?php while ( $nes_loop->have_posts() ) : $nes_loop->the_post(); global $product; ?>
-
       <li class="product">    
-
-        <a href="<?php echo get_permalink( $nes_loop->post->ID ) ?>" title="<?php echo esc_attr($nes_loop->post->post_title ? $nes_loop->post->post_title : $nes_loop->post->ID); ?>">
-
+        <a href="<?php echo get_permalink( $nes_loop->post->ID ) ?>" 
+           title="<?php echo esc_attr($nes_loop->post->post_title ? $nes_loop->post->post_title : $nes_loop->post->ID); ?>">
           <?php woocommerce_show_product_sale_flash( $post, $product ); ?>
-
-          <?php if (has_post_thumbnail( $nes_loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; ?>
-
+          <?php 
+            if (has_post_thumbnail( $nes_loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); 
+            else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; 
+          ?>
           <h3 ><?php the_title(); ?></h3>
-
           <span class="price"><?php echo $product->get_price_html(); ?></span>                    
-
         </a>
-
         <?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
-
       </li>
-
     <?php endwhile; ?>
 
     <?php wp_reset_query(); ?>
@@ -130,11 +137,22 @@ function snes_result_count() {
     $last     = min( $total, $snes_loop->get( 'posts_per_page' ) * $paged );
 
     if ( $total <= $per_page || -1 === $per_page ) {
-      printf( _n( 'Showing the single result', 'Showing all %d results', $total, 'woocommerce' ), $total );
+      printf( 
+        _n( 'Showing the single result', 
+            'Showing all %d results', 
+            $total, 'woocommerce' 
+        ), $total 
+      );
     } else {
-      printf( _nx( 'Showing the single result', 'Showing %1$d&ndash;%2$d of %3$d results', $total, '%1$d = first, %2$d = last, %3$d = total', 'woocommerce' ), $first, $last, $total );
-    }
-    ?>
+      printf( 
+        _nx( 'Showing the single result', 
+             'Showing %1$d&ndash;%2$d of %3$d results', 
+              $total, 
+              '%1$d = first, %2$d = last, %3$d = total', 
+              'woocommerce'
+        ), $first, $last, $total 
+      );
+    } ?>
   </p>
 <?php
 }
@@ -149,38 +167,30 @@ function snes_loop() {
     'orderby' => 'rand' 
   );
 
-  $snes_loop = new WP_Query( $args );
-   
+  $snes_loop = new WP_Query( $args ); 
   ?>
 
   <ul class="products">
    
     <?php while ( $snes_loop->have_posts() ) : $snes_loop->the_post(); global $product; ?>
-
       <li class="product">    
-
-        <a href="<?php echo get_permalink( $snes_loop->post->ID ) ?>" title="<?php echo esc_attr($snes_loop->post->post_title ? $snes_loop->post->post_title : $snes_loop->post->ID); ?>">
-
+        <a href="<?php echo get_permalink( $snes_loop->post->ID ) ?>" 
+          title="<?php echo esc_attr($snes_loop->post->post_title ? $snes_loop->post->post_title : $snes_loop->post->ID); ?>">
           <?php woocommerce_show_product_sale_flash( $post, $product ); ?>
-
-          <?php if (has_post_thumbnail( $snes_loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; ?>
-
+          <?php 
+            if (has_post_thumbnail( $snes_loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); 
+            else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; 
+          ?>
           <h3 ><?php the_title(); ?></h3>
-
           <span class="price"><?php echo $product->get_price_html(); ?></span>                    
-
         </a>
-
         <?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
-
       </li>
-
     <?php endwhile; ?>
 
     <?php wp_reset_query(); ?>
 
   </ul>
-
 <?php
 }
 
@@ -205,9 +215,22 @@ function sega_result_count() {
     $last     = min( $total, $snes_loop->get( 'posts_per_page' ) * $paged );
 
     if ( $total <= $per_page || -1 === $per_page ) {
-      printf( _n( 'Showing the single result', 'Showing all %d results', $total, 'woocommerce' ), $total );
+      printf( 
+        _n( 'Showing the single result', 
+            'Showing all %d results', 
+            $total, 
+            'woocommerce' 
+        ), $total 
+      );
     } else {
-      printf( _nx( 'Showing the single result', 'Showing %1$d&ndash;%2$d of %3$d results', $total, '%1$d = first, %2$d = last, %3$d = total', 'woocommerce' ), $first, $last, $total );
+      printf( 
+        _nx( 'Showing the single result', 
+             'Showing %1$d&ndash;%2$d of %3$d results', 
+             $total, 
+             '%1$d = first, %2$d = last, %3$d = total', 
+             'woocommerce' 
+        ), $first, $last, $total 
+      );
     }
     ?>
   </p>
@@ -225,37 +248,29 @@ function sega_loop() {
   );
 
   $snes_loop = new WP_Query( $args );
-   
   ?>
 
   <ul class="products">
    
     <?php while ( $snes_loop->have_posts() ) : $snes_loop->the_post(); global $product; ?>
-
       <li class="product">    
-
-        <a href="<?php echo get_permalink( $snes_loop->post->ID ) ?>" title="<?php echo esc_attr($snes_loop->post->post_title ? $snes_loop->post->post_title : $snes_loop->post->ID); ?>">
-
+        <a href="<?php echo get_permalink( $snes_loop->post->ID ) ?>" 
+          title="<?php echo esc_attr($snes_loop->post->post_title ? $snes_loop->post->post_title : $snes_loop->post->ID); ?>">
           <?php woocommerce_show_product_sale_flash( $post, $product ); ?>
-
-          <?php if (has_post_thumbnail( $snes_loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); else echo '<img src="'.woocommerce_placeholder_img_src().'" alt="Placeholder" width="300px" height="300px" />'; ?>
-
+          <?php if (has_post_thumbnail( $snes_loop->post->ID )) echo get_the_post_thumbnail($loop->post->ID, 'shop_catalog'); 
+                else echo '<img src="'.woocommerce_placeholder_img_src().'
+                  " alt="Placeholder" width="300px" height="300px" />'; 
+          ?>
           <h3 ><?php the_title(); ?></h3>
-
           <span class="price"><?php echo $product->get_price_html(); ?></span>                    
-
         </a>
-
         <?php woocommerce_template_loop_add_to_cart( $loop->post, $product ); ?>
-
       </li>
-
     <?php endwhile; ?>
 
     <?php wp_reset_query(); ?>
 
   </ul>
-
 <?php
 }
 
@@ -301,7 +316,9 @@ function playthrough_link_field() {
     <?php
     } else { ?>
       <h5 class="playthrough-label">View Our Playthrough: </h5>
-      <a href="<?php the_field('view_our_playthrough'); ?>"><img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" class="playthrough-img"></a> <?php
+      <a target='_blank' href="<?php the_field('view_our_playthrough'); ?>">
+        <img src="<?php bloginfo('template_directory'); ?>/img/youtube_icon.png" class="playthrough-img">
+      </a> <?php
     }
   }
 }

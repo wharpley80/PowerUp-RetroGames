@@ -19,9 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-//wc_get_template( 'archive-product.php' );
-
-
 // We need to get the top-level category so we know which template to load.
 $get_cat = $wp_query->query['product_cat'];
 
@@ -31,27 +28,15 @@ $all_the_cats = explode('/', $get_cat);
 // How many categories are there?
 $cat_count = count($all_the_cats);
 
-//
-// All the cats say meow!
-//
-
 // Define the parent
 $parent_cat = $all_the_cats[0];
 
-// Main Wedding Invitations
 if ( $parent_cat == 'nes' ) {
 	woocommerce_get_template( 'page-nes-shop.php' );
-
 } else if ( $parent_cat == 'snes' ) {
 	woocommerce_get_template( 'page-snes-shop.php' );
-
 } else if ( $parent_cat == 'sega' ) {
 	woocommerce_get_template( 'page-sega-shop.php' );
-//} else if ( $parent_cat == 'snes')  {
-//	woocommerce_get_template( 'page-snes.php' );
 } else {
 	woocommerce_get_template( 'archive-product.php' );
 }
-
-// Collection Layout
-//elseif ( $parent_cat == 'wedding-collections' && $cat_count == 2 ) woocommerce_get_template( 'subcat-archive-product.php' );
